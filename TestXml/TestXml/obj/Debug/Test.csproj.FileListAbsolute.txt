@@ -1,0 +1,12 @@
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\bin\Debug\Test.exe.config
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\bin\Debug\x86\sqlite3.dll
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\bin\Debug\x64\sqlite3.dll
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\bin\Debug\Test.exe
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\bin\Debug\Test.pdb
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\bin\Debug\Traductor.dll
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\bin\Debug\System.Data.SQLite.dll
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\bin\Debug\Traductor.pdb
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\bin\Debug\System.Data.SQLite.xml
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\obj\Debug\Test.exe
+C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\obj\Debug\Test.pdb
