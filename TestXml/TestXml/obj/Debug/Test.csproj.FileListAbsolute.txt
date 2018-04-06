@@ -10,3 +10,6 @@ C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\b
 C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\obj\Debug\Test.csprojResolveAssemblyReference.cache
 C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\obj\Debug\Test.exe
 C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TestXml\obj\Debug\Test.pdb
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TestXml\bin\Debug\Test.exe.config
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TestXml\obj\Debug\Test.exe
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TestXml\obj\Debug\Test.pdb

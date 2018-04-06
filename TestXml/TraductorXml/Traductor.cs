@@ -137,6 +137,7 @@ namespace Traductor
                         {
                             seccionagregar = item.seccion;
                             listo = false;
+                            secciondocumento = string.Empty;
                             foreach (var item1 in NuevoDocumento.Split('\n'))
                             {
                                 if (item1.Split(';')[0] == seccionagregar)
