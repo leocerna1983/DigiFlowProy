@@ -1,0 +1,1 @@
+se debe adjuntar la referencia del archivo System.Data.SQLite.dll al proyecto, y se debe copiar en la carpeta del ejecutable de windows mobile el archivo SQLite.Interop.066.DLL
