@@ -14,3 +14,19 @@ C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\Traductor
 C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TraductorXml\obj\Debug\Traductor.csprojResolveAssemblyReference.cache
 C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TraductorXml\obj\Debug\Traductor.dll
 C:\Users\silve\OneDrive\documentos\visual studio 2015\Projects\TestXml\TraductorXml\obj\Debug\Traductor.pdb
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\x86\sqlite3.dll
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\x64\sqlite3.dll
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\Traductor.dll.config
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\Traductor.dll
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\Traductor.pdb
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\EntityFramework.dll
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\System.Data.SQLite.dll
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\EntityFramework.xml
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\bin\Debug\System.Data.SQLite.xml
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\obj\Debug\Traductor.csprojResolveAssemblyReference.cache
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\obj\Debug\Traductor.dll
+C:\Users\silve\OneDrive\Documentos\GitHub\DigiFlowProy\TestXml\TraductorXml\obj\Debug\Traductor.pdb

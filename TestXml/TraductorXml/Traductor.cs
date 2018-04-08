@@ -17,10 +17,10 @@ namespace Traductor
 
         private string CadenaDocumento = "";
         SQLiteConnection sqliteConexion;
-        public Traductor(string File, int CompaniaId){
+        public Traductor(string File, int CompaniaId=1){
             companiaId = CompaniaId;            
             file = File;
-        }
+        }        
 
         public bool VerificarConexion() {
             try

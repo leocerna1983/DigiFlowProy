@@ -14,7 +14,7 @@ namespace Test
         static void Main(string[] args)
         {
 
-            Traductor.Traductor trad = new Traductor.Traductor(@"TraductorXMLite.sqlite3", 1);
+            Traductor.Traductor trad = new Traductor.Traductor(@"TraductorXMLite.sqlite3");
             if (trad.VerificarConexion())
             {
                 CampoCalculado CampCalculado = new CampoCalculado();
