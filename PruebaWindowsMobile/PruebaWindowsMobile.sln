@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraductorTxt", "TraductorTxt\TraductorTxt.csproj", "{F50AFD95-9937-4B36-9E5C-ADE35C085629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaWindowsMobile", "PruebaWindowsMobile\PruebaWindowsMobile.csproj", "{7ADE9DD0-79CE-406D-8B6E-09DD4A5D7D45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F50AFD95-9937-4B36-9E5C-ADE35C085629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50AFD95-9937-4B36-9E5C-ADE35C085629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50AFD95-9937-4B36-9E5C-ADE35C085629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50AFD95-9937-4B36-9E5C-ADE35C085629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ADE9DD0-79CE-406D-8B6E-09DD4A5D7D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ADE9DD0-79CE-406D-8B6E-09DD4A5D7D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ADE9DD0-79CE-406D-8B6E-09DD4A5D7D45}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7ADE9DD0-79CE-406D-8B6E-09DD4A5D7D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ADE9DD0-79CE-406D-8B6E-09DD4A5D7D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ADE9DD0-79CE-406D-8B6E-09DD4A5D7D45}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,12 @@
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\TraductorTxt\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\TraductorTxt\bin\Debug\TraductorTxt.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\TraductorTxt\bin\Debug\TraductorTxt.pdb
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\TraductorTxt\bin\Debug\System.Data.SQLite.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\TraductorTxt\obj\Debug\TraductorTxt.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\TraductorTxt\obj\Debug\TraductorTxt.pdb
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\PruebaWindowsMobile\TraductorTxt\bin\Debug\TraductorTxt.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\PruebaWindowsMobile\TraductorTxt\bin\Debug\TraductorTxt.pdb
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\PruebaWindowsMobile\TraductorTxt\bin\Debug\System.Data.SQLite.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\PruebaWindowsMobile\TraductorTxt\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\PruebaWindowsMobile\TraductorTxt\obj\Debug\TraductorTxt.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\PruebaWindowsMobile\TraductorTxt\obj\Debug\TraductorTxt.pdb

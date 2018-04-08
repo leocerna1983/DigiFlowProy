@@ -1,0 +1,16 @@
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\bin\Debug\SmartDeviceProject1.exe
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\bin\Debug\SmartDeviceProject1.pdb
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.Properties.Resources.resources
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.csproj.GenerateResource.Cache
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.exe
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.pdb
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.Form1.resources
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\bin\Debug\System.Data.SQLite.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\bin\Debug\TraductorTxt.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\bin\Debug\System.Data.OracleClient.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\bin\Debug\System.Transactions.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\bin\Debug\System.EnterpriseServices.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\bin\Debug\System.Web.dll
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\bin\Debug\TraductorTxt.pdb
+C:\Users\silve\OneDrive\Documentos\Visual Studio 2008\Projects\SmartDeviceProject1\SmartDeviceProject1\bin\Debug\System.EnterpriseServices.Wrapper.dll

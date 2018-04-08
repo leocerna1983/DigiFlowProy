@@ -1,0 +1,124 @@
+A;Serie;;BB14
+A;Correlativo;;00000007
+A;RznSocEmis;;Comercial del Acero S.A.
+A;CODI_EMPR;;1
+A;RUTEmis;;20100020361
+A;DirEmis;;Av. Argentina 2051
+A;ComuEmis;;150131
+A;NomComer;;Comercial del Acero S.A.
+A;TipoDTE;;07
+A;TipoRutReceptor;;1
+A;RUTRecep;;41377228
+A;RznSocRecep;;Juan Pérez
+A;DirRecep;;Calle Bolognesi 800 LINCE LIMA
+A;TipoMoneda;;PEN
+A;CodigoAutorizacion;;000
+A;Sustento;;ANULACION DE LA OPERACION
+A;TipoNotaCredito;;01
+A;MntNeto;;14310.00
+A;MntExe;;0.00
+A;MntExo;;0.00
+A;MntTotalIgv;;2575.80
+A;MntTotal;;16885.80
+A;FchEmis;;2017-09-12
+A2;CodigoImpuesto;1;1000
+A2;MontoImpuesto;1;2575.80
+A2;TasaImpuesto;1;18
+B;NroLinDet;1;1
+B;QtyItem;1;1
+B;UnmdItem;1;C62
+B;VlrCodigo;1;000000000052028082
+B;NmbItem;1;PROTECTOR LATERAL DELANTERO
+B;PrcItem;1;1180.00
+B;PrcItemSinIgv;1;1000.00
+B;MontoItem;1;1000.00
+B;DescuentoMonto;1;200.00
+B;IndExe;1;10
+B;CodigoTipoIgv;1;1000
+B;TasaIgv;1;18
+B;ImpuestoIgv;1;180.00
+B;NroLinDet;2;2
+B;QtyItem;2;5
+B;UnmdItem;2;C62
+B;VlrCodigo;2;000000000052032731
+B;NmbItem;2;TAPON DEPOSITO RECUPERADOR REFRIGERANTE
+B;PrcItem;2;2360.00
+B;PrcItemSinIgv;2;2000.00
+B;MontoItem;2;10000.00
+B;IndExe;2;10
+B;CodigoTipoIgv;2;1000
+B;TasaIgv;2;18
+B;ImpuestoIgv;2;1800.00
+B;NroLinDet;3;3
+B;QtyItem;3;10
+B;UnmdItem;3;C62
+B;VlrCodigo;3;000000000052037594
+B;NmbItem;3;CORREA ALTERNADOR Y BOMBA AGUA
+B;PrcItem;3;354.00
+B;PrcItemSinIgv;3;300.00
+B;MontoItem;3;3000.00
+B;IndExe;3;10
+B;CodigoTipoIgv;3;1000
+B;TasaIgv;3;18
+B;ImpuestoIgv;3;540.00
+B;NroLinDet;4;4
+B;QtyItem;4;50
+B;UnmdItem;4;C62
+B;VlrCodigo;4;000000000052037595
+B;NmbItem;4;CERRADURA CILINDRO PUERTA DELANTERA 
+B;PrcItem;4;2.36
+B;PrcItemSinIgv;4;2.00
+B;MontoItem;4;100.00
+B;IndExe;4;10
+B;CodigoTipoIgv;4;1000
+B;TasaIgv;4;18
+B;ImpuestoIgv;4;18.00
+B;NroLinDet;5;5
+B;QtyItem;5;10
+B;UnmdItem;5;C62
+B;VlrCodigo;5;000000000052071559
+B;NmbItem;5;BARRA DER PRCHQ IMP
+B;PrcItem;5;3.54
+B;PrcItemSinIgv;5;3.00
+B;MontoItem;5;30.00
+B;IndExe;5;10
+B;CodigoTipoIgv;5;1000
+B;TasaIgv;5;18
+B;ImpuestoIgv;5;5.40
+B;NroLinDet;6;6
+B;QtyItem;6;20
+B;UnmdItem;6;C62
+B;VlrCodigo;6;000000000094770783
+B;NmbItem;6;PROTECTOR LATERAL DELANTERO
+B;PrcItem;6;5.90
+B;PrcItemSinIgv;6;5.00
+B;MontoItem;6;100.00
+B;IndExe;6;10
+B;CodigoTipoIgv;6;1000
+B;TasaIgv;6;18
+B;ImpuestoIgv;6;18.00
+B;NroLinDet;7;7
+B;QtyItem;7;30
+B;UnmdItem;7;C62
+B;VlrCodigo;7;000000000094771679
+B;NmbItem;7;TAPON DEPOSITO RECUPERADOR REFRIGERANTE
+B;PrcItem;7;7.08
+B;PrcItemSinIgv;7;6.00
+B;MontoItem;7;180.00
+B;IndExe;7;10
+B;CodigoTipoIgv;7;1000
+B;TasaIgv;7;18
+B;ImpuestoIgv;7;32.40
+C;NroLinDR;1;1
+C;TpoMov;1;D
+C;ValorDR;1;100.00
+C;NroLinDR;2;2
+C;TpoMov;2;G
+C;ValorDR;2;100.00
+D;NroLinRef;1;01
+D;TpoDocRef;1;03
+D;SerieRef;1;BB14
+D;FolioRef;1;00000002
+E;TipoAdicSunat;01;01
+E;NmrLineasAdicSunat;01;01
+E;DescripcionAdicSunat;01;DIECISEIS MIL OCHOCIENTOS OCHENTA Y CINCO CON 80/100 NUEVOS SOLES
