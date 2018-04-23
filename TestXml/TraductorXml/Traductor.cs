@@ -52,7 +52,7 @@ namespace Traductor
             {
                 if (VerificarConexion())
                 {
-                    string cadena = System.Text.Encoding.UTF8.GetString(bytes);                                                            
+                    string cadena = System.Text.Encoding.Default.GetString(bytes);                                                            
                     if (sqliteConexion == null)
                     {
                         throw new Exception("Error inicializando base de datos.");
@@ -63,7 +63,7 @@ namespace Traductor
                         List<configuracion> lConfiguracion = ObtenerConfiguracionDocumento(documentoId);
 
                         int i = 0;
-
+                        bool listoc = false;
                         foreach (var item in cadena.Split('\n'))
                         {
                             //Encabezado
@@ -78,7 +78,10 @@ namespace Traductor
                                     if (Conf.escatalogo > 0)
                                     {
                                         string valorReemplazo = ObtenerValorCatalogo(Conf.companiaid, Conf.catalogoid, item.Split(';')[3]);                                        
-                                        NuevoDocumento += item.Split(';')[0] + ";" + item.Split(';')[1] + ";" + item.Split(';')[2] + ";" + valorReemplazo + "\r\n";
+                                        if(valorReemplazo!=string.Empty)
+                                            NuevoDocumento += item.Split(';')[0] + ";" + item.Split(';')[1] + ";" + item.Split(';')[2] + ";" + valorReemplazo + "\r\n";
+                                        else
+                                            NuevoDocumento += item.Split(';')[0] + ";" + item.Split(';')[1] + ";" + item.Split(';')[2] + ";" + item.Split(';')[3] + "\r\n";
                                     }
                                     else
                                     {
@@ -133,7 +136,10 @@ namespace Traductor
 
                         string DocumentoResultante = string.Empty;
                         bool listo = false;
-                        foreach (var item in lConfiguracion.Where(p=>!p.verificado))
+
+                        
+
+                        foreach (var item in lConfiguracion.Where(p=>!p.verificado).OrderBy(o=>o.seccion))
                         {
                             seccionagregar = item.seccion;
                             listo = false;
@@ -146,10 +152,66 @@ namespace Traductor
                                 }
                                 if (secciondocumento != string.Empty && item1.Split(';')[0] != secciondocumento && !listo)
                                 {
-                                    item.verificado = true;
+
+                                    if(!(secciondocumento=="C"))
+                                        item.verificado = true;
                                     if (item.esvalordefecto > 0)
                                     {
-                                        DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + item.valordefecto + "\r\n";
+                                        if (secciondocumento == "C")
+                                        {
+                                            
+                                            CampoCalculado CC = new CampoCalculado();
+                                            List<CuerpoC> lCuerpoc= CC.ObtenerCuerpoC(NuevoDocumento);
+                                            string DocumentoCuerpoC = DocumentoResultante;
+                                            string NuevoDocumentoCuerpoC = string.Empty;
+                                            foreach (var itemc in DocumentoCuerpoC.Split('\n'))
+                                            {
+                                                if (!listoc)
+                                                {
+                                                    if (itemc.Split(';')[0] != "C")
+                                                    {
+                                                        NuevoDocumentoCuerpoC += itemc;
+                                                    }
+                                                    else
+                                                    {
+                                                    
+                                                        listoc = true;
+                                                        int linea = 0;
+                                                        foreach (var itemCuerpoC in lCuerpoc)
+                                                        {
+                                                            linea++;
+                                                            NuevoDocumentoCuerpoC += "C" + ";" + "NroLinDR" + ";1;" + linea.ToString() + "\r\n";
+
+                                                            NuevoDocumentoCuerpoC += "C" + ";" + "TpoMov" + ";1;" + itemCuerpoC.TpoMov + "\r\n";
+
+                                                            NuevoDocumentoCuerpoC += "C" + ";" + "ValorDR" + ";1;" + itemCuerpoC.ValorDR + "\r\n";
+
+                                                            NuevoDocumentoCuerpoC += "C" + ";" + "IndCargoDescuento" + ";1;1\r\n";
+
+                                                            CampoCalculado CampCalc = new CampoCalculado();
+                                                            decimal FactorCargoDescuento = CampCalc.FactorCargoDescuento(cadena);
+
+                                                            decimal MtoTotal = CampCalc.MontoTotal(cadena);
+                                                            NuevoDocumentoCuerpoC += "C" + ";FactorCargoDescuento;1;" + FactorCargoDescuento.ToString("n6") + "\r\n";
+
+                                                            decimal MontoCargoDescuento = CampCalc.MontoCargoDescuento(cadena);
+                                                            NuevoDocumentoCuerpoC += "C" + ";MontoCargoDescuento;1;" + MontoCargoDescuento.ToString("n6") + "\r\n";
+
+
+                                                            NuevoDocumentoCuerpoC += "C" + ";MBaseCargoDescuento;1;" + MtoTotal.ToString("n6") + "\r\n";
+                                                        }
+                                                        lConfiguracion.Find(p => p.nombrecolumna == "IndCargoDescuento").verificado = true;
+                                                        lConfiguracion.Find(p => p.nombrecolumna == "FactorCargoDescuento").verificado = true;
+                                                        lConfiguracion.Find(p => p.nombrecolumna == "MBaseCargoDescuento").verificado = true;
+                                                        lConfiguracion.Find(p => p.nombrecolumna == "MontoCargoDescuento").verificado = true;                                                      
+                                                    }
+                                                }
+
+                                            }                                            
+                                            DocumentoResultante = NuevoDocumentoCuerpoC;
+                                        }
+                                        else
+                                            DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + item.valordefecto + "\r\n";
                                     }
                                     else
                                     {
@@ -168,10 +230,10 @@ namespace Traductor
                                                     int CantidadLineas = CampCalc.CantidadDetalle(cadena);
                                                     DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + CantidadLineas.ToString() + "\r\n";
                                                     break;
-                                                case 3:
-                                                    decimal FactorCargoDescuento = CampCalc.FactorCargoDescuento(cadena);
-                                                    DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + FactorCargoDescuento.ToString() + "\r\n";
-                                                    break;
+                                                //case 3:
+                                                //    decimal FactorCargoDescuento = CampCalc.FactorCargoDescuento(cadena);
+                                                //    DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + FactorCargoDescuento.ToString() + "\r\n";
+                                                //    break;
                                                 default:
                                                     break;
                                             }
@@ -200,7 +262,7 @@ namespace Traductor
             {
                 throw new Exception("Tipo Documento Id invalido para procesamiento, por favor verifique.");
             }
-            Resultado = Encoding.ASCII.GetBytes(NuevoDocumento);
+            Resultado = Encoding.Default.GetBytes(NuevoDocumento);
             return Resultado;
         }
 

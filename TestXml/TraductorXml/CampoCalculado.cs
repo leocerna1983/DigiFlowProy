@@ -48,6 +48,36 @@ namespace Traductor
                 return 0;
         }
 
+        public decimal MontoCargoDescuento(string Documento)
+        {
+            decimal MontoTotal = 0;
+            Decimal SumaCuerpoC = 0;
+            if (Documento.Split('\n').Where(p => p.Split(';')[0] == "A" && p.Split(';')[1] == "MntTotal").Count() > 0)
+            {
+                MontoTotal = decimal.Parse(Documento.Split('\n').Where(p => p.Split(';')[0] == "A" && p.Split(';')[1] == "MntTotal").First().Split(';')[3]);
+            }
+            if (Documento.Split('\n').Where(p => p.Split(';')[0] == "A" && p.Split(';')[1] == "MntTotal").Count() > 0)
+            {
+                List<CuerpoC> lCuerpoC = ObtenerCuerpoC(Documento);
+                SumaCuerpoC = lCuerpoC.Where(p => p.TpoMov == "G").Sum(a => a.ValorDR);
+            }
+            return (SumaCuerpoC);
+        }
+
+        public decimal MontoTotal(string Documento)
+        {
+            decimal MontoTotal = 0;
+            Decimal SumaCuerpoC = 0;
+            if (Documento.Split('\n').Where(p => p.Split(';')[0] == "A" && p.Split(';')[1] == "MntTotal").Count() > 0)
+            {
+                MontoTotal = decimal.Parse(Documento.Split('\n').Where(p => p.Split(';')[0] == "A" && p.Split(';')[1] == "MntTotal").First().Split(';')[3]);
+            }
+            if (MontoTotal > 0)
+                return (MontoTotal);
+            else
+                return 0;
+        }
+
         public List<CuerpoC> ObtenerCuerpoC(string Documento)
         {
             List<CuerpoC> lCuerpoC = new List<CuerpoC>();

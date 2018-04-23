@@ -19,10 +19,19 @@ namespace Test
             {
                 CampoCalculado CampCalculado = new CampoCalculado();
                 //string ruta = @"C:\01 TXTs\01 Homologacion\Grupo 11 - Ventas con Descuento Global\BB14_0003_Boleta3_con_6_Items_DG.txt";
-                string ruta = @"C:\01 TXTs\01 Homologacion\Grupo 01 - Ventas gravadas IGV\DocumentoColumnaNueva.txt";
+                string ruta = @"C:\01 TXTs\01 Homologacion\Grupo 11 - Ventas con Descuento Global\descuento1.txt";
+
+                var utf8 = Encoding.UTF8;
+
+                string TextoArchivo  = File.ReadAllText(ruta, Encoding.Default);
+
+                byte[] bytes = Encoding.Default.GetBytes(TextoArchivo);
+
+
+                byte[] bytesoutput  = trad.Procesar(bytes,1);      
                 
-                byte[] bytes = File.ReadAllBytes(ruta);
-                trad.Procesar(bytes,1);                
+                string output = System.Text.Encoding.Default.GetString(bytesoutput);
+
                 Console.WriteLine("Conexion valida.");
             }
             else

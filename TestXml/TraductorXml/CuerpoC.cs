@@ -11,6 +11,7 @@ namespace Traductor
         public int NroLinDR { get; set; }
         public string TpoMov { get; set; }
         public decimal ValorDR { get; set; }
+        public int? indcargodescuento { get; set; }
 
     }
 }
