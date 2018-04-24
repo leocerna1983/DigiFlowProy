@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SQLite;
 using System.IO;
+using System.Globalization;
 
 namespace Traductor
 {
@@ -139,116 +140,174 @@ namespace Traductor
 
                         
 
-                        foreach (var item in lConfiguracion.Where(p=>!p.verificado).OrderBy(o=>o.seccion))
+                        foreach (var item in lConfiguracion.FindAll(p=>p.verificado==false).OrderBy(o=>o.seccion).ToList<configuracion>())
                         {
-                            seccionagregar = item.seccion;
-                            listo = false;
-                            secciondocumento = string.Empty;
-                            foreach (var item1 in NuevoDocumento.Split('\n'))
-                            {
-                                if (item1.Split(';')[0] == seccionagregar)
+                            if (item.verificado == false)
+                            { 
+                                seccionagregar = item.seccion;
+                                listo = false;
+                                secciondocumento = string.Empty;
+                                foreach (var item1 in NuevoDocumento.Split('\n'))
                                 {
-                                    secciondocumento = item1.Split(';')[0];
-                                }
-                                if (secciondocumento != string.Empty && item1.Split(';')[0] != secciondocumento && !listo)
-                                {
-
-                                    if(!(secciondocumento=="C"))
-                                        item.verificado = true;
-                                    if (item.esvalordefecto > 0)
+                                    if (item1.Split(';')[0] == seccionagregar)
                                     {
-                                        if (secciondocumento == "C")
+                                        secciondocumento = item1.Split(';')[0];
+                                    }
+                                    if (secciondocumento != string.Empty && item1.Split(';')[0] != secciondocumento && !listo)
+                                    {
+
+                                        if(!(secciondocumento=="C"))
+                                            item.verificado = true;
+                                        if (item.esvalordefecto > 0)
                                         {
-                                            
-                                            CampoCalculado CC = new CampoCalculado();
-                                            List<CuerpoC> lCuerpoc= CC.ObtenerCuerpoC(NuevoDocumento);
-                                            string DocumentoCuerpoC = DocumentoResultante;
-                                            string NuevoDocumentoCuerpoC = string.Empty;
-                                            foreach (var itemc in DocumentoCuerpoC.Split('\n'))
+                                            if (secciondocumento == "C")
                                             {
-                                                if (!listoc)
+                                            
+                                                CampoCalculado CC = new CampoCalculado();
+                                                List<CuerpoC> lCuerpoc= CC.ObtenerCuerpoC(NuevoDocumento);
+                                                string DocumentoCuerpoC = DocumentoResultante;
+                                                string NuevoDocumentoCuerpoC = string.Empty;
+                                                foreach (var itemc in DocumentoCuerpoC.Split('\n'))
                                                 {
-                                                    if (itemc.Split(';')[0] != "C")
+                                                    if (!listoc)
                                                     {
-                                                        NuevoDocumentoCuerpoC += itemc;
-                                                    }
-                                                    else
-                                                    {
-                                                    
-                                                        listoc = true;
-                                                        int linea = 0;
-                                                        foreach (var itemCuerpoC in lCuerpoc)
+                                                        if (itemc.Split(';')[0] != "C")
                                                         {
-                                                            linea++;
-                                                            NuevoDocumentoCuerpoC += "C" + ";" + "NroLinDR" + ";1;" + linea.ToString() + "\r\n";
-
-                                                            NuevoDocumentoCuerpoC += "C" + ";" + "TpoMov" + ";1;" + itemCuerpoC.TpoMov + "\r\n";
-
-                                                            NuevoDocumentoCuerpoC += "C" + ";" + "ValorDR" + ";1;" + itemCuerpoC.ValorDR + "\r\n";
-
-                                                            NuevoDocumentoCuerpoC += "C" + ";" + "IndCargoDescuento" + ";1;1\r\n";
-
-                                                            CampoCalculado CampCalc = new CampoCalculado();
-                                                            decimal FactorCargoDescuento = CampCalc.FactorCargoDescuento(cadena);
-
-                                                            decimal MtoTotal = CampCalc.MontoTotal(cadena);
-                                                            NuevoDocumentoCuerpoC += "C" + ";FactorCargoDescuento;1;" + FactorCargoDescuento.ToString("n6") + "\r\n";
-
-                                                            decimal MontoCargoDescuento = CampCalc.MontoCargoDescuento(cadena);
-                                                            NuevoDocumentoCuerpoC += "C" + ";MontoCargoDescuento;1;" + MontoCargoDescuento.ToString("n6") + "\r\n";
-
-
-                                                            NuevoDocumentoCuerpoC += "C" + ";MBaseCargoDescuento;1;" + MtoTotal.ToString("n6") + "\r\n";
+                                                            NuevoDocumentoCuerpoC += itemc + "\n";
                                                         }
-                                                        lConfiguracion.Find(p => p.nombrecolumna == "IndCargoDescuento").verificado = true;
-                                                        lConfiguracion.Find(p => p.nombrecolumna == "FactorCargoDescuento").verificado = true;
-                                                        lConfiguracion.Find(p => p.nombrecolumna == "MBaseCargoDescuento").verificado = true;
-                                                        lConfiguracion.Find(p => p.nombrecolumna == "MontoCargoDescuento").verificado = true;                                                      
-                                                    }
-                                                }
+                                                        else
+                                                        {
+                                                    
+                                                            listoc = true;
+                                                            int linea = 0;
+                                                            NumberFormatInfo nfi = new NumberFormatInfo();
+                                                            foreach (var itemCuerpoC in lCuerpoc)
+                                                            {
+                                                                linea++;
+                                                                NuevoDocumentoCuerpoC += "C" + ";" + "NroLinDR" + ";1;" + linea.ToString() + "\r\n";
 
-                                            }                                            
-                                            DocumentoResultante = NuevoDocumentoCuerpoC;
+                                                                NuevoDocumentoCuerpoC += "C" + ";" + "TpoMov" + ";1;" + itemCuerpoC.TpoMov + "\r\n";
+                                                                nfi.NumberDecimalDigits = 2;
+                                                                nfi.NumberGroupSeparator = "";
+                                                                NuevoDocumentoCuerpoC += "C" + ";" + "ValorDR" + ";1;" + itemCuerpoC.ValorDR.ToString(nfi) + "\r\n";
+
+
+                                                                foreach (var item2 in lConfiguracion.Where(p=>p.seccion=="C"))
+                                                                {
+                                                                    if (item2.esvalordefecto == 1)
+                                                                    {
+                                                                        NuevoDocumentoCuerpoC += "C" + ";" + item2.nombrecolumna + ";1;" + item2.valordefecto + "\r\n";
+                                                                    }
+                                                                    else {
+                                                                        if (item2.escatalogo == 1)
+                                                                        {
+
+                                                                        }
+                                                                        else {
+                                                                            if (item2.escalculado == 1)
+                                                                            {
+                                                                                CampoCalculado CampCalc = new CampoCalculado();
+                                                                                
+                                                                                nfi.NumberDecimalSeparator = ".";
+
+                                                                                switch (item2.calculoid)
+                                                                                {
+                                                                                    case 3:
+                                                                                        decimal FactorCargoDescuento = CampCalc.FactorCargoDescuento(cadena);
+                                                                                        nfi.NumberDecimalDigits = 6;
+                                                                                        nfi.CurrencyDecimalDigits = 6;
+                                                                                        nfi.NumberGroupSeparator = "";
+                                                                                        NuevoDocumentoCuerpoC += "C" + ";"+item2.nombrecolumna+";1;" + FactorCargoDescuento.ToString(nfi) + "\r\n";
+                                                                                        break;
+                                                                                    case 4:
+                                                                                        decimal MontoCargoDescuento = CampCalc.MontoCargoDescuento(cadena);
+                                                                                        nfi.NumberDecimalDigits = 2;
+                                                                                        nfi.NumberGroupSeparator = "";
+                                                                                        NuevoDocumentoCuerpoC += "C" + ";" + item2.nombrecolumna + ";1;" + MontoCargoDescuento.ToString(nfi) + "\r\n";
+                                                                                        break;
+                                                                                    case 5:
+                                                                                        decimal MtoTotal = CampCalc.MontoTotal(cadena);
+                                                                                        nfi.NumberDecimalDigits = 2;
+                                                                                        nfi.NumberGroupSeparator = "";
+                                                                                        NuevoDocumentoCuerpoC += "C" + ";" + item2.nombrecolumna + ";1;" + MtoTotal.ToString(nfi) + "\r\n";
+                                                                                        break;
+                                                                                    default:
+                                                                                        break;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+
+                                                            }
+                                                            if(lConfiguracion.Find(p => p.nombrecolumna == "IndCargoDescuento")!=null)
+                                                                lConfiguracion.Find(p => p.nombrecolumna == "IndCargoDescuento").verificado = true;
+
+                                                            if (lConfiguracion.Find(p => p.nombrecolumna == "FactorCargoDescuento") != null)
+                                                                lConfiguracion.Find(p => p.nombrecolumna == "FactorCargoDescuento").verificado = true;
+
+                                                            if (lConfiguracion.Find(p => p.nombrecolumna == "MBaseCargoDescuento") != null)
+                                                                lConfiguracion.Find(p => p.nombrecolumna == "MBaseCargoDescuento").verificado = true;
+
+                                                            if (lConfiguracion.Find(p => p.nombrecolumna == "MontoCargoDescuento") != null)
+                                                                lConfiguracion.Find(p => p.nombrecolumna == "MontoCargoDescuento").verificado = true;
+
+                                                            if (lConfiguracion.Find(p => p.nombrecolumna == "IndCargoDescuento") != null)
+                                                                lConfiguracion.Find(p => p.nombrecolumna == "IndCargoDescuento").verificado = true;
+
+                                                            if (lConfiguracion.Find(p => p.nombrecolumna == "CodigoCargoDescuento") != null)
+                                                                lConfiguracion.Find(p => p.nombrecolumna == "CodigoCargoDescuento").verificado = true;                                                        
+
+                                                            if (lConfiguracion.Find(p => p.nombrecolumna == "IndCargoDescuento1") != null)
+                                                                lConfiguracion.Find(p => p.nombrecolumna == "IndCargoDescuento1").verificado = true;
+
+                                                        }
+                                                    }
+                                                    DocumentoResultante = NuevoDocumentoCuerpoC;
+                                                    NuevoDocumento = NuevoDocumentoCuerpoC;
+                                                }                                            
+                                                DocumentoResultante = NuevoDocumentoCuerpoC;
+                                            }
+                                            else
+                                                DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + item.valordefecto + "\r\n";
                                         }
                                         else
-                                            DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + item.valordefecto + "\r\n";
-                                    }
-                                    else
-                                    {
-                                        if (item.escalculado > 0)
                                         {
-                                            CampoCalculado CampCalc = new CampoCalculado();
-
-                                            switch (item.calculoid)
+                                            if (item.escalculado > 0)
                                             {
-                                                case 1:
-                                                    string Hora = CampCalc.FechaHoraActual(cadena);
-                                                    DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + Hora + "\r\n";
+                                                CampoCalculado CampCalc = new CampoCalculado();
 
-                                                    break;
-                                                case 2:
-                                                    int CantidadLineas = CampCalc.CantidadDetalle(cadena);
-                                                    DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + CantidadLineas.ToString() + "\r\n";
-                                                    break;
-                                                //case 3:
-                                                //    decimal FactorCargoDescuento = CampCalc.FactorCargoDescuento(cadena);
-                                                //    DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + FactorCargoDescuento.ToString() + "\r\n";
-                                                //    break;
-                                                default:
-                                                    break;
+                                                switch (item.calculoid)
+                                                {
+                                                    case 1:
+                                                        string Hora = CampCalc.FechaHoraActual(cadena);
+                                                        DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + Hora + "\r\n";
+
+                                                        break;
+                                                    case 2:
+                                                        int CantidadLineas = CampCalc.CantidadDetalle(cadena);
+                                                        DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + CantidadLineas.ToString() + "\r\n";
+                                                        break;
+                                                    //case 3:
+                                                    //    decimal FactorCargoDescuento = CampCalc.FactorCargoDescuento(cadena);
+                                                    //    DocumentoResultante += secciondocumento + ";" + item.nombrecolumna + ";;" + FactorCargoDescuento.ToString() + "\r\n";
+                                                    //    break;
+                                                    default:
+                                                        break;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                DocumentoResultante += item + "\r\n";
                                             }
                                         }
-                                        else
-                                        {
-                                            DocumentoResultante += item + "\n";
-                                        }
+                                        listo = true;
                                     }
-                                    listo = true;
+                                    DocumentoResultante += item1 + "\n";
                                 }
-                                DocumentoResultante += item1 + "\n";
-                            }
                             NuevoDocumento = DocumentoResultante;
                             DocumentoResultante = string.Empty;
+                            }
                         }
                                          
                     }
@@ -262,7 +321,7 @@ namespace Traductor
             {
                 throw new Exception("Tipo Documento Id invalido para procesamiento, por favor verifique.");
             }
-            Resultado = Encoding.Default.GetBytes(NuevoDocumento);
+            Resultado = Encoding.Default.GetBytes(NuevoDocumento.Trim());
             return Resultado;
         }
 
